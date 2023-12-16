@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "2e5572a2-c5e0-4b50-a769-1373ef1a1df4",
+		"name": "Recime",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31393317",
+		"_collection_link": "https://www.postman.com/material-meteorologist-35032983/workspace/recime/collection/31393317-2e5572a2-c5e0-4b50-a769-1373ef1a1df4?action=share&source=collection_link&creator=31393317"
+	},
+	"item": [
+		{
+			"name": "Get Recipe",
+			"item": [
+				{
+					"name": "Invalid Request",
+					"item": [
+						{
+							"name": "Get Recipe invalid difficulty",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status Code is 400\", function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"has error message\", function(){\r",
+											"    let jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(\"A difficulty is required for filtering trending recipes\")\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/recipe?filter=invalid&orderBy=position desc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"recipe"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "invalid"
+										},
+										{
+											"key": "orderBy",
+											"value": "position desc"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get recipe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status Code is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/recipe?filter=easy&orderBy=position desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"recipe"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "easy"
+								},
+								{
+									"key": "orderBy",
+									"value": "position desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get recipe without filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status Code is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/recipe?orderBy=position desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"recipe"
+							],
+							"query": [
+								{
+									"key": "orderBy",
+									"value": "position desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get recipe without filter and orderBy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status Code is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/recipe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"recipe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
