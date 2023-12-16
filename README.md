@@ -26,5 +26,5 @@ create database recime
 
 **5. Import postman collection**
 
-+ import `Recime.postman_collection`
++ import `postman/Recime.postman_collection`
 
